@@ -10,7 +10,7 @@ class BookerUser(HttpUser):
         with self.client.get("/booking", catch_response=True) as response:
             if response.status_code == 200:
                 response.success()
-            elif response.status_code == 404:
+            elif response.status_code == 201:
                 response.success()
             else:
                 response.failure(f"Gagal mendapatkan data: {response.status_code}")
